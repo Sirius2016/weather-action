@@ -25,7 +25,7 @@ weather_text = ''
 for text in weather_list:
     weather_text +=text
 # 用空格替换掉字符
-#weather_text = weather_text.replace('\r','')
+weather_text = weather_text.replace('\r\n','')
 #print(weather_text)
  
 
