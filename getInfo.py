@@ -6,7 +6,7 @@ from lxml import etree
 # 城市
 city = 'shenzhen'
 # 目标网址
-url = 'https://www.tianqi.com/%s/7'%city
+url = 'https://www.tianqi.com/shenzhen/7'
 # 请求头，伪装成浏览器
 headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'
@@ -25,7 +25,7 @@ weather_text = ''
 for text in weather_list:
     weather_text +=text
 # 用空格替换掉字符
-weather_text = weather_text.replace('\r\n','')
+weather_text = weather_text.replace('\n\r','')
 #print(weather_text)
  
 
