@@ -12,7 +12,7 @@ headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'
         }
 # 向网址发送请求并获取数据
-response = requests.get(url=url,headers=headers)
+response = requests.get(url=url,headers=headers,timeout=30)
 # print(response.text)
 # 筛选信息
 data = etree.HTML(response.text)
