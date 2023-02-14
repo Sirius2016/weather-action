@@ -1,2 +1,0 @@
-# weather-action
- weather-action
