@@ -62,14 +62,3 @@ jobs:
           to: ${{ secrets.MAIL_USER_NMAE }}
           from: news.topurl.cn
           content_type: text/html
-                     
-      - name: '打完收工,提交代码!'
-        run: |
-          git config --local user.email "${{ secrets.MAIL_USER_NMAE }}"
-          git config --local user.name "Sirius2016"
-          git remote set-url origin https://${{ github.actor }}:${{ secrets.MYGG_TOKEN }}@github.com/${{ github.repository }}
-          git pull
-          cp -Rf result.txt logs/${{env.TODAY_DATE}}.txt
-          git add .
-          git commit -m "Update By Github Action Bot"
-          git push -u origin main
