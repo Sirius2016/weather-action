@@ -4,7 +4,7 @@ on:
   push:
   schedule:
     - cron: "38 22 * * *" #早上6点45左右推送
-  #workflow_dispatch:
+  workflow_dispatch:
     
 jobs:
   bot:
