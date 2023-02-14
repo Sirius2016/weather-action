@@ -68,7 +68,7 @@ jobs:
           git config --local user.email "${{ secrets.MAIL_USER_NMAE }}"
           git config --local user.name "Sirius2016"
           git remote set-url origin https://${{ secrets.MYGG_TOKEN }}@github.com/${{ github.repository }}
-          git pull 
+          git pull --rebase origin master
           cp -Rf result.txt logs/${{env.TODAY_DATE}}.txt
           git add .
           git commit -m "Update By Github Action Bot"
