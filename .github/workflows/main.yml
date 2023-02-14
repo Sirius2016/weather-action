@@ -67,7 +67,7 @@ jobs:
         run: |
           git config --local user.email "${{ secrets.MAIL_USER_NMAE }}"
           git config --local user.name "Sirius2016"
-          git remote set-url origin https://${{ secrets.MYGG_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.MYGG_TOKEN }}@github.com/${{ github.repository }}
           git pull
           cp -Rf result.txt logs/${{env.TODAY_DATE}}.txt
           git add .
