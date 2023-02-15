@@ -26,7 +26,7 @@ def get_weather():
     for text in weather_list:
         weather_text +=text
     # 用空格替换掉字符
-    return weather_text
+    return print(weather_text)
 
 if get_weather() == '' :
     get_weather()
