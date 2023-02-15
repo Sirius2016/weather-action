@@ -2,6 +2,9 @@ from bs4 import BeautifulSoup
 import sys
 import requests
 from lxml import etree
+
+global weather_text = ''
+
 def get_weather():
     # 城市
     city = 'shenzhen'
@@ -20,7 +23,6 @@ def get_weather():
     #print(weather_list)
 
     # 将主要的信息拼在一起,即拼接成一个字符串
-    weather_text = ''
     for text in weather_list:
         weather_text +=text
     # 用空格替换掉字符
