@@ -29,7 +29,8 @@ def get_weather():
     return print(weather_text)
 
 zi="深圳"
-result = zi in get_weather()
+ps=get_weather()
+result = zi in ps
 if result == 'False' :
     get_weather()
 else:
