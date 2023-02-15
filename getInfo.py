@@ -26,12 +26,9 @@ def get_weather():
     for text in weather_list:
         weather_text +=text
     # 用空格替换掉字符
-    return print(weather_text)
+    print(weather_text)
 
-zi="深圳"
-ps=get_weather()
-result = zi in ps
-if result == 'False' :
+if get_weather().isspace():
     get_weather()
 else:
     print("获取天气数据成功...")
