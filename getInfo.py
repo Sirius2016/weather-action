@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import sys
 import requests
+import time
 from lxml import etree
 
 def get_weather():
@@ -14,9 +15,10 @@ def get_weather():
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'
             }
     # 向网址发送请求并获取数据
-    response = requests.get(url=url,headers=headers)
+    response = requests.get(url=url,headers=headers,timeout=15)
     # print(response.text)
     # 筛选信息
+    time.sleep(3)
     data = etree.HTML(response.text)
     weather_list =  data.xpath('/html/body/div[7]/div[2]/div[2]/div/div[1]//text()')
     #print(weather_list)
