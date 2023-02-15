@@ -29,9 +29,8 @@ def get_weather():
 if get_weather() == '' :
     get_weather()
 else:
-    exit()
+    print("获取天气数据成功...")
  
-
 soup = BeautifulSoup(open('result.html'),"html.parser")
 titleArr = soup.select('.u')
 #标题
