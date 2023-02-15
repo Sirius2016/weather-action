@@ -28,7 +28,9 @@ def get_weather():
     # 用空格替换掉字符
     return print(weather_text)
 
-if get_weather() == '' :
+zi="深圳"
+result = zi in get_weather()
+if result == 'False' :
     get_weather()
 else:
     print("获取天气数据成功...")
