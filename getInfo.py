@@ -2,31 +2,34 @@ from bs4 import BeautifulSoup
 import sys
 import requests
 from lxml import etree
+def get_weather():
+    # 城市
+    city = 'shenzhen'
+    # 目标网址
+    url = 'https://www.tianqi.com/shenzhen/7'
+    # 请求头，伪装成浏览器
+    headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'
+            }
+    # 向网址发送请求并获取数据
+    response = requests.get(url=url,headers=headers)
+    # print(response.text)
+    # 筛选信息
+    data = etree.HTML(response.text)
+    weather_list =  data.xpath('/html/body/div[7]/div[2]/div[2]/div/div[1]//text()')
+    #print(weather_list)
 
-# 城市
-city = 'shenzhen'
-# 目标网址
-url = 'https://www.tianqi.com/shenzhen/7'
-# 请求头，伪装成浏览器
-headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36'
-        }
-# 向网址发送请求并获取数据
-response = requests.get(url=url,headers=headers)
-# print(response.text)
-# 筛选信息
-data = etree.HTML(response.text)
-#weather_list =  data.xpath('//dl[@class="weather_info"]//text()')
-weather_list =  data.xpath('/html/body/div[7]/div[2]/div[2]/div/div[1]//text()')
-#print(weather_list)
+    # 将主要的信息拼在一起,即拼接成一个字符串
+    weather_text = ''
+    for text in weather_list:
+        weather_text +=text
+    # 用空格替换掉字符
+    return weather_text
 
-# 将主要的信息拼在一起,即拼接成一个字符串
-weather_text = ''
-for text in weather_list:
-    weather_text +=text
-# 用空格替换掉字符
-weather_text = weather_text.replace('\n\r','')
-#print(weather_text)
+if get_weather() == '' :
+    get_weather()
+else:
+    exit()
  
 
 soup = BeautifulSoup(open('result.html'),"html.parser")
