@@ -3,10 +3,9 @@ import sys
 import requests
 from lxml import etree
 
-global weather_text
-
 def get_weather():
     # 城市
+    global weather_text
     city = 'shenzhen'
     # 目标网址
     url = 'https://www.tianqi.com/shenzhen/7'
