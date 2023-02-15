@@ -24,7 +24,7 @@ def get_weather():
     #print(weather_list)
 
     # 将主要的信息拼在一起,即拼接成一个字符串
-    weather_text = ''
+    weather_text = ' '
     for text in weather_list:
         weather_text +=text
     # 用空格替换掉字符
