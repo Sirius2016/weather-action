@@ -28,7 +28,7 @@ def get_weather():
     # 用空格替换掉字符
     print(weather_text)
 
-if get_weather().isspace():
+if get_weather().isspace() == True :
     get_weather()
 else:
     print("获取天气数据成功...")
