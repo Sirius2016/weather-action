@@ -20,7 +20,7 @@ def get_weather():
     # 筛选信息
     time.sleep(3)
     data = etree.HTML(response.text)
-    weather_list =  data.xpath('/html/body/div[7]/div[2]/div[2]/div/div[1]//text()')
+    weather_list =  data.xpath('/html[1]/body[1]/div[7]/div[2]/div[2]/div[1]/div[1]/text()')
     #print(weather_list)
 
     # 将主要的信息拼在一起,即拼接成一个字符串
